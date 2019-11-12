@@ -7,35 +7,115 @@
 </ion-header>
 
 <ion-content>
-    <ion-card class="welcome-card">
-      <img src="/assets/shapes.svg" alt="" />
-      <ion-card-header>
-        <ion-card-subtitle>Get Started</ion-card-subtitle>
-        <ion-card-title>Welcome to Ionic</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <p>Now that your app has been created, you'll want to start building out features and components. Check out some of the resources below for next steps.</p>
-      </ion-card-content>
-    </ion-card>
-    <ion-list lines="none">
-      <ion-list-header>
-        <ion-label>Resources</ion-label>
-      </ion-list-header>
-      <ion-item href="https://ionicframework.com/docs/">
-        <ion-icon slot="start" color="medium" name="book"></ion-icon>
-        <ion-label>Ionic Documentation</ion-label>
+  <mat-horizontal-stepper #stepper>
+    <mat-step [stepControl]="firstFormGroup">
+      <ng-template matStepLabel>Card</ng-template>
+
+      <ion-row>
+        <ion-col size="3"></ion-col>
+        <ion-col size="6" class="ion-text-center"><img class="img-size" src="../../assets/images/frontThaiCard.jpg"
+            alt=""></ion-col>
+        <ion-col size="3"></ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="3"></ion-col>
+        <ion-col size="6" class="ion-text-center"><img class="img-size" src="../../assets/images/backThaiCard.jpg"
+            alt=""></ion-col>
+        <ion-col size="3"></ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="3"></ion-col>
+        <ion-col size="6" class="ion-text-center"><img class="img-size" src="../../assets/images/oweThaiCard.jpg"
+            alt=""></ion-col>
+        <ion-col size="3"></ion-col>
+      </ion-row>
+
+      <ion-item>
+        <ion-label class="font-size">รหัสบัตรประชาชน</ion-label>
+        <ion-input></ion-input>
       </ion-item>
-      <ion-item href="https://ionicframework.com/docs/building/scaffolding">
-        <ion-icon slot="start" color="medium" name="build"></ion-icon>
-        <ion-label>Scaffold Out Your App</ion-label>
+      <ion-item>
+        <ion-label class="font-size">หมายเลขด้านหลังบัตรประชาชน</ion-label>
+        <ion-input></ion-input>
       </ion-item>
-      <ion-item href="https://ionicframework.com/docs/layout/structure">
-        <ion-icon slot="start" color="medium" name="grid"></ion-icon>
-        <ion-label>Change Your App Layout</ion-label>
+      <ion-item>
+        <ion-label class="font-size">ชื่อ</ion-label>
+        <ion-input></ion-input>
       </ion-item>
-      <ion-item href="https://ionicframework.com/docs/theming/basics">
-        <ion-icon slot="start" color="medium" name="color-fill"></ion-icon>
-        <ion-label>Theme Your App</ion-label>
+      <ion-item>
+        <ion-label class="font-size">นามสกุล</ion-label>
+        <ion-input></ion-input>
       </ion-item>
-    </ion-list>
+      <ion-item>
+        <ion-label class="font-size">เพศ</ion-label>
+        <ion-select placeholder="เลิือก">
+          <ion-select-option value="male">ชาย</ion-select-option>
+          <ion-select-option value="female">หญิง</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label class="font-size">วันเดือนปีเกิด</ion-label>
+        <ion-datetime placeholder="เลิือก"></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label class="font-size" position="floating">ที่อยู่ตามบัตรประชาชน</ion-label>
+        <ion-textarea rows="6" cols="20"></ion-textarea>
+      </ion-item>
+      <div class="ion-margin-top hint-style">
+        กรุณาตรวนสอบให้แน่ใจว่าข้อมูลนี่เป็นความจริงและถูกต้อง
+      </div>
+      <button style="width: 100%;" mat-raised-button color="primary" matStepperNext>ขั้นตอนต่อไป</button>
+    </mat-step>
+
+
+    <mat-step [stepControl]="secondFormGroup">
+      <ng-template matStepLabel>Address</ng-template>
+      <div>
+        <ion-item>
+          <ion-label class="font-size">อีเมล</ion-label>
+          <ion-input></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label class="font-size" position="floating">ที่อยู่ปัจจุบัน</ion-label>
+            <ion-textarea rows="6" cols="20"></ion-textarea>
+        </ion-item>
+        <div class="ion-margin-top hint-style">
+          กรุณาตรวนสอบให้แน่ใจว่าข้อมูลนี่เป็นความจริงและถูกต้อง
+        </div>
+        <!-- <button mat-button matStepperPrevious>Back</button> -->
+        <button style="width: 100%;" mat-raised-button color="primary" matStepperNext>ขั้นตอนต่อไป</button>
+      </div>
+
+    </mat-step>
+    <mat-step [stepControl]="thridFormGroup">
+      <ng-template matStepLabel>secondPerson</ng-template>
+      <ion-item>
+        <ion-label class="font-size">ความสัมพันธ์</ion-label>
+        <ion-select class="font-size" placeholder="เลิือก">
+          <ion-select-option>บิดา</ion-select-option>
+          <ion-select-option>มารดา</ion-select-option>
+          <ion-select-option>ญาติ</ion-select-option>
+          <ion-select-option>พี่/น้อง</ion-select-option>
+          <ion-select-option>ภรรยา</ion-select-option>
+          <ion-select-option>หลาน</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label class="font-size">ชื่อ</ion-label>
+        <ion-input></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label class="font-size">นามสกุล</ion-label>
+        <ion-input></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label class="font-size">หมายเลยโทรศัพย์</ion-label>
+        <ion-input></ion-input>
+      </ion-item>
+      <div class="ion-margin-top hint-style">
+        กรุณาตรวนสอบให้แน่ใจว่าข้อมูลนี่เป็นความจริงและถูกต้อง
+      </div>
+      <button style="width: 100%;" mat-raised-button color="primary">ส่ง</button>
+    </mat-step>
+  </mat-horizontal-stepper>
 </ion-content>
